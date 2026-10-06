@@ -1,0 +1,35 @@
+{
+  "A_supervised": {
+    "train_acc": 0.712,
+    "test_acc": 0.363875,
+    "epochs": 15
+  },
+  "B_rotation": {
+    "train_acc": 0.218,
+    "test_acc": 0.192125,
+    "epochs_pretrain": 15,
+    "epochs_linear": 20,
+    "rotation_acc": 0.9053071983034571
+  },
+  "B_rotation_lr1e-2": {
+    "train_acc": 0.36,
+    "test_acc": 0.37625,
+    "epochs_pretrain": 15,
+    "epochs_linear": 20,
+    "lr": 0.01
+  },
+  "C_simclr": {
+    "train_acc": 0.704,
+    "test_acc": 0.532,
+    "epochs_pretrain": 20,
+    "epochs_linear": 20,
+    "lr": 0.01,
+    "pretrain_loss": 2.881901203057705,
+    "pretrain_pos_acc": 0.7380308493589743
+  },
+  "D_top5_neighbor_precision": {
+    "Supervised": 0.36705,
+    "Rotation SSL": 0.33515,
+    "SimCLR": 0.48195
+  }
+}
