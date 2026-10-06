@@ -61,7 +61,7 @@ The training loop follows the same basic pattern in every experiment:
 
 For linear evaluation, the encoder was placed in evaluation mode, all encoder parameters had `requires_grad=False`, and only the 5,130-parameter linear classifier was optimized.
 
-## Part A — Supervised limited-label baseline
+## Part A : Supervised limited-label baseline
 
 The entire ResNet-18 was trained end-to-end on the 500 labeled images for 15 epochs.
 
@@ -75,7 +75,7 @@ The entire ResNet-18 was trained end-to-end on the 500 labeled images for 15 epo
 
 The training accuracy rose much faster than test accuracy. This gap indicates overfitting: with only 500 labels, the model learned the training examples more easily than general visual features.
 
-## Part B — Rotation self-supervised learning
+## Part B : Rotation self-supervised learning
 
 ### Pretraining task
 
@@ -95,7 +95,7 @@ The encoder was frozen and only a new `Linear(512, 10)` classifier was trained o
 
 An earlier probe with learning rate `1e-3` reached only `19.21%`. Its loss decreased from `2.314` to `2.162`, so the linear classifier had barely learned. The rerun used `1e-2`, selected from the training behavior rather than from test accuracy.
 
-## Part C — SimCLR-style contrastive learning
+## Part C : SimCLR-style contrastive learning
 
 ### Pretraining task
 
@@ -134,7 +134,7 @@ The `90.5%` rotation accuracy and `73.8%` SimCLR positive-pair accuracy measure 
 
 SimCLR likely transferred better because the two augmented views preserve object identity while changing appearance, crop, color, and sometimes grayscale. The encoder therefore has an incentive to learn stable object and shape information instead of only orientation cues.
 
-## Part D — Nearest-neighbor visualization
+## Part D : Nearest-neighbor visualization
 
 The same four query images were used for all three encoders. For each query, the query image and its top five cosine-similarity neighbors were displayed with class labels. Green labels indicate the same class as the query; red labels indicate a different class.
 
